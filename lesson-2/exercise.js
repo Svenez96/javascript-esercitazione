@@ -73,13 +73,13 @@ console.log(mathOperations(1, 2))
  */
 
 function categorizeAge(age) {
-    if (age<13) {
+    if (age < 13) {
         return "Bambino"
         
-    } else if (age >=13 && age<=19) {
+    } else if (age >= 13 && age <= 19) {
         return "Adolescente"
     }
-    else if (age >=20 && age<=64) {
+    else if (age >= 20 && age <= 64) {
         return "Adulto"
     }
     else  {
@@ -137,9 +137,22 @@ console.log(getDayType(3))
  */
 
 function translateColor(englishColor) {
-    // Crea un oggetto di mapping (in italiano minuscolo)
-    // Restituisci la traduzione o "Colore non trovato"
+    const map = {
+        red: "rosso",
+        blue: "blu",
+        green: "verde",
+        yellow: "giallo",
+        black: "nero",
+        white: "bianco",
+        purple: "viola"
+    }
+   
+    return map[englishColor] || "colore non trovato";
 }
+
+console.log(translateColor("rosso"))
+
+
 
 /**
  * ESERCIZIO 6: VERIFICA RANGE CON OPERATORI LOGICI
@@ -162,12 +175,16 @@ function translateColor(englishColor) {
  */
 
 function isInRange(number, min, max) {
-    // Implementa qui la funzione usando AND (&&)
+    return number >= min && number <= max;
 }
 
 function isOutOfRange(number, min, max) {
-    // Implementa qui la funzione usando OR (||)
+    return number < min || number > max;
 }
+
+console.log(isInRange(15, 10, 20));
+console.log(isOutOfRange(40, 10, 20));
+
 
 /**
  * ESERCIZIO 7: FUNZIONI CON RETURN E COMPOSIZIONE
@@ -183,16 +200,20 @@ function isOutOfRange(number, min, max) {
  */
 
 function double(num) {
-    // Implementa qui la funzione
+    return num * 2  
 }
+ console.log(double(3))
 
 function square(num) {
-    // Implementa qui la funzione
+    return num * num
 }
+ console.log(square(3))
 
 function doubleAndSquare(num) {
-    // Usa le funzioni precedenti per implementare questa funzione
+    return square(double(num))
 }
+
+ console.log(doubleAndSquare(5))
 
 /**
  * ESERCIZIO 8: MANIPOLAZIONE ARRAY CON CICLO FOR
@@ -208,12 +229,23 @@ function doubleAndSquare(num) {
  * Output: [2, 4, 4, 8, 6]
  */
 
-function processArray(numbers) {
-    // Implementa qui la funzione con un ciclo for
+function processArray (numbers){
+
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] % 2 === 0) {
+        numbers[i] = numbers[i] * 2;
+    }
+      else {
+        numbers[i] = numbers[i] + 1;
+    }
+}
+     return numbers
 }
 
+console.log (processArray([1, 2, 3, 4, 5]))
+
 /**
- * ESERCIZIO 9: FILTRO ARRAY CON CONDIZIONI
+ * CIZIO 9: FILTRO ARRAY CON CONDIZIONI
  * 
  * Crea una funzione 'filterNumbers' che accetta un array di numeri e due parametri:
  * - min: valore minimo (incluso)
