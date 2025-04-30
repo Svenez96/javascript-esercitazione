@@ -232,7 +232,7 @@ function doubleAndSquare(num) {
 function processArray (numbers){
 
     for (let i = 0; i < numbers.length; i++) {
-      if (numbers[i] % 2 === 0) {
+      if (numbers[i] % 2 == 0) {
         numbers[i] = numbers[i] * 2;
     }
       else {
@@ -245,7 +245,7 @@ function processArray (numbers){
 console.log (processArray([1, 2, 3, 4, 5]))
 
 /**
- * CIZIO 9: FILTRO ARRAY CON CONDIZIONI
+ * ESERCIZIO 9: FILTRO ARRAY CON CONDIZIONI
  * 
  * Crea una funzione 'filterNumbers' che accetta un array di numeri e due parametri:
  * - min: valore minimo (incluso)
@@ -259,8 +259,18 @@ console.log (processArray([1, 2, 3, 4, 5]))
  */
 
 function filterNumbers(numbers, min, max) {
-    // Implementa qui la funzione usando un ciclo for e condizioni
+
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] >= min && numbers[i] <= max ){
+            console.log(filterNumbers(numbers[i]))
+        }
+    }
+
+    return numbers
 }
+
+console.log(filterNumbers([5, 10, 15, 20, 25], 10, 20 ))
+
 
 /**
  * ESERCIZIO 10: ESERCIZIO COMBINATO - GESTIONE STUDENTI
