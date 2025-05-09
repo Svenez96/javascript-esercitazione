@@ -15,9 +15,11 @@
  */
 
 function createGreeting(saluto, nome, titolo) {
-    const classic = saluto + ", " + titolo + " " + nome;
-    const literals = `${saluto}, ${titolo} ${nome}`;
-    return [classic, literals];
+    return [
+        saluto + ", " + titolo + " " + nome,
+        
+        `${saluto}, ${titolo} ${nome}`
+    ]
 }
 
 console.log(createGreeting("Buongiorno", "Roberto", "Sig."));
@@ -41,22 +43,18 @@ console.log(createGreeting("Buongiorno", "Roberto", "Sig."));
  */
 
 function mathOperations(num1, num2) {
-    const sum = num1 + num2;
-    const mult = num1 * num2;
-    const diff = num1 - num2;
-    const div = num1 / num2;
-    const isEven = sum %2 == 0;
-    const object = {
-        sum,
-        mult,
-        diff,
-        div,
-        isEven
+
+    return {
+        sum: num1 + num2,
+        mult: num1 * num2,
+        diff: num1 - num2,
+        div: num1 / num2,
+        isEven: (num1 + num2) % 2 === 0,
     }
-    return object
 }
 
-console.log(mathOperations(1, 2))
+console.log(mathOperations(2, 4))
+
 
 /**
  * ESERCIZIO 3: CATEGORIE DI ETÀ CON IF-ELSE
@@ -140,7 +138,7 @@ function translateColor(englishColor) {
     const map = {
         red: "rosso",
         blue: "blu",
-        green: "verde",
+        green: "verde",                
         yellow: "giallo",
         black: "nero",
         white: "bianco",
@@ -200,17 +198,17 @@ console.log(isOutOfRange(40, 10, 20));
  */
 
 function double(num) {
-    return num * 2  
+    return num * 2; 
 }
  console.log(double(3))
 
 function square(num) {
-    return num * num
+    return num ** 2;
 }
  console.log(square(3))
 
 function doubleAndSquare(num) {
-    return square(double(num))
+    return square(double(num));
 }
 
  console.log(doubleAndSquare(5))
@@ -233,10 +231,10 @@ function processArray (numbers){
 
     for (let i = 0; i < numbers.length; i++) {
       if (numbers[i] % 2 == 0) {
-        numbers[i] = numbers[i] * 2;
+        numbers[i] *= 2;
     }
       else {
-        numbers[i] = numbers[i] + 1;
+        numbers[i] += 1;
     }
 }
      return numbers
@@ -260,13 +258,15 @@ console.log (processArray([1, 2, 3, 4, 5]))
 
 function filterNumbers(numbers, min, max) {
 
+    let result = [];
+
     for (let i = 0; i < numbers.length; i++) {
         if (numbers[i] >= min && numbers[i] <= max ){
-            console.log(filterNumbers(numbers[i]))
+        result.push(numbers[i]);
         }
     }
 
-    return numbers
+    return result
 }
 
 console.log(filterNumbers([5, 10, 15, 20, 25], 10, 20 ))
@@ -282,7 +282,7 @@ console.log(filterNumbers([5, 10, 15, 20, 25], 10, 20 ))
  * 
  * 2. Crea una funzione 'addStudent' che aggiunge uno studente all'array degli studenti
  * 
- * 3. Crea una funzione 'getAverageGrade' che calcola la media dei voti
+ * 3. Crea una funzione 'getAverauigi"geGrade' che calcola la media dei voti
  * 
  * 4. Crea una funzione 'getTopStudent' che trova lo studente con il voto più alto
  * 
@@ -299,23 +299,59 @@ console.log(filterNumbers([5, 10, 15, 20, 25], 10, 20 ))
  * console.log(getTopStudent(studenti)); // Output: { nome: "Luigi", cognome: "Verdi", voto: 90 }
  * console.log(getStudentsByGrade(studenti, 80)); // Output: [{ nome: "Mario", ... }, { nome: "Luigi", ... }]
  */
+const students = [];
 
 // Implementa qui tutte le funzioni richieste
 function createStudent(nome, cognome, voto) {
+    return {
+        nome,
+        cognome,
+        voto,
+    }
     // Crea e restituisci un oggetto studente
 }
 
+const studenti = [
+    { nome: "Alessandro", cognome: "D'Antoni", voto: 90 },
+    { nome: "Nino", cognome: "Ambrogio", voto: 93 },
+    { nome: "Simone", cognome: "Morabito", voto: 87 },
+    { nome: "Domenico", cognome: "Mazza", voto: 92 },
+    { nome: "Jorge", cognome: "Vasquez", voto: 94 }
+]
+
+
 function addStudent(studenti, nome, cognome, voto) {
+    students.push(createStudent(nome, cognome, voto));
     // Aggiungi uno studente all'array
 }
 
+console.log(addStudent)
+
+
 function getAverageGrade(studenti) {
+    let result = 0;
+
+    for (let i = 0; i < students.length; i++) {
+        result += studenti[i].voto;
+    }
     // Calcola la media dei voti
+    return result / students.length;
 }
 
 function getTopStudent(studenti) {
     // Trova lo studente con il voto più alto
+    let maxGrade = 0;
+
+    for (let i = 0; i < students.length; i++) {
+      if (students[i].voto > maxGrade){
+        maxGrade = students[i].voto
+      }
+    }
+    // Calcola la media dei voti
+    return maxGrade
 }
+
+console.log(getTopStudent())
 
 function getStudentsByGrade(studenti, minGrade) {
     // Filtra gli studenti con voto >= minGrade
