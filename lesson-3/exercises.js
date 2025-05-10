@@ -269,7 +269,18 @@ console.log("Modified array:", colors); // Should output: ["red", "purple", "pin
 const numbersBonus = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // Exercise: Chain filter, map, sort, and reduce together
+
 function processNumbers(array) {
+
+  return array
+
+  .filter(num => num %2 === 0)
+
+  .map(num => num * 2)
+
+  .sort((a, b) => b - a)
+
+  .reduce((sum, num) => sum + num, 0)
 
 }
 
