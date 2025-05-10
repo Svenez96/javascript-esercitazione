@@ -27,14 +27,11 @@ const numbers1 = [10, 20, 30, 40, 50];
 // Exercise: Use forEach to log each number multiplied by 2
 function doubleAndLog(array) {
     array.forEach(item => console.log(item * 2));
-  }
+}
   
-  // Your solution here
-
-// Test your function
 console.log("Exercise 1: forEach()");
 doubleAndLog(numbers1);
-// Should output: 20, 40, 60, 80, 100
+
 
 // =====================================================
 // Exercise 2: map()
@@ -52,17 +49,13 @@ const people = [
 
 // Exercise: Use map to create an array of full names
 function getFullNames(peopleArray) {
-  const names = people.map ((person)=> `${person.firstName} ${person.lastName}`);
+return people.map ((person)=> `${person.firstName} ${person.lastName}`);
  
-  console.log(names);
 }
 
+const fullNames = getFullNames(people);
+ console.log(fullNames);
 
-// Test your function
-
-// const fullNames = getFullNames(people);
-// console.log(fullNames);
-// Should output: ["Mario Rossi", "Giulia Bianchi", "Carlo Verdi"]
 
 // =====================================================
 // Exercise 3: filter()
@@ -79,11 +72,9 @@ function filterEvenNumbers(array) {
   return array.filter (number => number %2 === 0) 
 }
 
-// Test your function
 console.log("\nExercise 3: filter()");
 const evenNumbers = filterEvenNumbers(numbers3);
 console.log(evenNumbers);
-// Should output: [2, 4, 6, 8, 10]
 
 // =====================================================
 // Exercise 4: find()
@@ -106,11 +97,10 @@ function findCheapProduct(products) {
    return products.find (product => product.price < 20 )
 }
 
-// Test your function
 console.log("\nExercise 4: find()");
 const cheapProduct = findCheapProduct(products);
 console.log(cheapProduct);
-// Should output: { name: "USB Cable", price: 15 }
+
 
 // =====================================================
 // Exercise 5: reduce()
@@ -132,11 +122,9 @@ function calculateTotalSales(transactions) {
   return transactions.reduce ((sum, transaction) => sum + transaction.amount ,0)
 };
 
-// Test your function
 console.log("\nExercise 5: reduce()");
 const totalSales = calculateTotalSales(transactions);
 console.log(totalSales);
-// Should output: 605
 
 // =====================================================
 // Exercise 6: sort()
@@ -159,11 +147,10 @@ function sortStudentsByGrade(students) {
   return students.sort((a , b) =>  b.grade - a.grade);
 }
 
-// Test your function
 console.log("\nExercise 6: sort()");
 const sortedStudents = sortStudentsByGrade(students);
 console.log(sortedStudents);
-// Should output: Students array sorted by grade (highest first)
+
 
 // =====================================================
 // Exercise 7: push()
@@ -181,12 +168,12 @@ function addItemsToList(list, ...newItems) {
   list.push(...newItems)
 }
 
-// Test your function
+
 console.log("\nExercise 7: push()");
 const newLength = addItemsToList(shoppingList, "apples", "cheese", "chocolate");
-console.log("New list length:", newLength); // Should output: 6
+console.log("New list length:", newLength);
 console.log("Updated shopping list:", shoppingList); 
-// Should output: ["milk", "bread", "eggs", "apples", "cheese", "chocolate"]
+
 
 // =====================================================
 // Exercise 8: join()
@@ -202,14 +189,12 @@ const words = ["JavaScript", "is", "a", "powerful", "language"];
 // Exercise: Use join to create a sentence
 function createSentence(wordsArray) {
   return wordsArray.join(" ");
-  // Your solution here
 }
 
-// Test your function
 console.log("\nExercise 8: join()");
 const sentence = createSentence(words);
 console.log(sentence);
-// Should output: "JavaScript is a powerful language."
+
 
 // =====================================================
 // Exercise 9: findIndex()
@@ -227,11 +212,10 @@ function findDivisibleByFive(array) {
   return array.findIndex (number => number % 5 === 0 );
 }
 
-// Test your function
 console.log("\nExercise 9: findIndex()");
 const index = findDivisibleByFive(numbers9);
 console.log("Index of first number divisible by 5:", index);
-// Should output: 3 (because numbers9[3] is 35, which is divisible by 5)
+
 
 // =====================================================
 // Exercise 10: splice()
@@ -249,11 +233,11 @@ function replaceElements(array, startIndex, deleteCount, ...newElements) {
   return array.splice (startIndex, deleteCount, ...newElements)
 }
 
-// Test your function
+
 console.log("\nExercise 10: splice()");
 const removedElements = replaceElements(colors, 1, 2, "purple", "pink");
-console.log("Removed elements:", removedElements); // Should output: ["green", "blue"]
-console.log("Modified array:", colors); // Should output: ["red", "purple", "pink", "yellow", "orange"]
+console.log("Removed elements:", removedElements);
+console.log("Modified array:", colors); 
 
 /**
  * Bonus Exercise: Chain multiple array methods together
@@ -284,8 +268,7 @@ function processNumbers(array) {
 
 }
 
-// Test your function
+
 console.log("\nBonus Exercise: Chaining multiple array methods");
 const result = processNumbers(numbersBonus);
 console.log("Result of chained operations:", result);
-// Should output: 60 (from 2*2 + 4*2 + 6*2 + 8*2 + 10*2 = 4 + 8 + 12 + 16 + 20 = 60)
