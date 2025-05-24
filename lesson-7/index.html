@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .actions {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        #data-table {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <div class="actions">
+            <select id="limit">
+                <option value="10" selected>10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="*">All</option>
+            </select>
+            <button id="prev">Prev</button>
+            <span id="page-info"></span>
+            <button id="next">Next</button>
+            <select id="sorting">
+                <option value="id_ASC" selected>ID Ascending</option>
+                <option value="id_DESC">ID Descending</option>
+                <option value="title_ASC">Title Ascending</option>
+                <option value="title_DESC">Title Descending</option>
+            </select>
+            <input type="search" value="" placeholder="Search here..." id="search" />
+        </div>
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User ID</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                </tr>
+            </thead>
+            <tbody id="data"></tbody>
+        </table>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
